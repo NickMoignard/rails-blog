@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'New Post', new_post_path %><br><br>
+
+
+
+  <tbody>
+    <% @posts.each do |post| %>
+      
+        <%= post.title %></td><br>
+        <%= post.caption %></td><br>
+        <%= post.votes %></td><br>
+        <%= post.body %></td><br><br>
+        <%= link_to 'Show', post %></td>
+        <%= link_to 'Edit', edit_post_path(post) %></td>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
+    <% end %>
+
+
+<br>
+
