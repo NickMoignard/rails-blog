@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-
+    validates :user_id, presence: true
     #mount paperclip image
     has_attached_file :image
     validates_attachment :image,
