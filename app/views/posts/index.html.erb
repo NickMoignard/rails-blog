@@ -6,11 +6,11 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      
-        <%= post.title %></td><br>
-        <%= post.caption %></td><br>
+        <%= post.user.email %><br>
+        <%= post.title %><br>
+        <%= post.caption %><br>
         <%= link_to image_tag(post.image.url, class: 'media-object'), post.image.url, targer: '_blank'%>
-        <%= post.body %></td><br><br>
+        <%= post.body %><br><br>
         <%= link_to 'Show', post %></td>
         <%= link_to 'Edit', edit_post_path(post) %></td>
         <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
