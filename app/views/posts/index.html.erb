@@ -2,18 +2,23 @@
 
 <%= link_to 'New Post', new_post_path %><br><br>
 
-
-
-  <tbody>
     <% @posts.each do |post| %>
         <%= post.user.email %><br>
         <%= post.title %><br>
         <%= post.caption %><br>
         <%= link_to image_tag(post.image.url, class: 'media-object'), post.image.url, targer: '_blank'%>
         <%= post.body %><br><br>
-        <%= link_to 'Show', post %></td>
-        <%= link_to 'Edit', edit_post_path(post) %></td>
-        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <h3>Comments</h3>
+        <% post.comments.each do |c| %>
+            <%= c.username %><br>
+            <%= c.body%><br>
+        <% end %>
+
+
+
+        <%= link_to 'Show', post %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
       
     <% end %>
 
